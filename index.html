@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YIM Rwanda | Member Registration</title>
+<style>
+:root{--navy:#09213d;--blue:#155da8;--gold:#f3c400;--bg:#f5f8fc;--text:#172033;--muted:#667085;--white:#fff;--border:#d9e2ec}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+header{background:linear-gradient(120deg,var(--navy),#124c82);color:#fff;padding:18px 5%;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:5;box-shadow:0 2px 12px #0002}
+header img{width:82px;height:82px;object-fit:contain;background:#fff;border-radius:50%;padding:5px;box-shadow:0 2px 12px #0005}header h1{margin:0;font-size:21px}header p{margin:3px 0 0;color:#dbeafe;font-size:13px}
+nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}button{border:0;border-radius:10px;padding:10px 15px;font-weight:700;cursor:pointer;font-size:14px}.navbtn{background:#ffffff18;color:#fff;border:1px solid #ffffff33}.navbtn.active,.navbtn:hover{background:var(--gold);color:var(--navy)}
+main{max-width:1120px;margin:28px auto;padding:0 18px}.hero{background:#fff;border-radius:18px;padding:28px;box-shadow:0 6px 25px #09213d0d;margin-bottom:20px}.hero h2{font-size:32px;margin:0 0 8px;color:var(--navy)}.hero p{color:var(--muted);max-width:750px;line-height:1.6}
+.grid{display:grid;grid-template-columns:1.4fr .8fr;gap:20px}.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 5px 18px #09213d0a}.card h3{margin-top:0;color:var(--navy)}
+label{font-size:13px;font-weight:700;display:block;margin:12px 0 6px}input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:9px;font:inherit;background:#fff}input:focus,select:focus,textarea:focus{outline:2px solid #155da833;border-color:var(--blue)}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}.full{grid-column:1/-1}.primary{background:var(--navy);color:#fff}.primary:hover{background:#12395f}
+.note{background:#fff8d8;border-left:4px solid var(--gold);padding:12px;border-radius:8px;font-size:13px;line-height:1.5}.success{background:#ecfdf3;border-left:4px solid #12b76a;padding:14px;border-radius:9px}.hidden{display:none!important}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{padding:18px;background:#fff;border:1px solid var(--border);border-radius:14px}.stat b{font-size:27px;color:var(--navy);display:block}.stat span{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--border)}th{color:var(--muted);font-size:12px}.pill{padding:4px 8px;border-radius:20px;background:#e9f2ff;color:#155da8;font-size:11px;font-weight:700}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:28px}@media(max-width:800px){.grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.stats{grid-template-columns:1fr 1fr}header{align-items:flex-start}nav{margin-left:0}}
+</style>
+</head>
+<body>
+<header>
+  <img src="yim-logo-large.png" alt="Official YIM Rwanda logo">
+  <div><h1>Youth Impact Mission — Rwanda</h1><p>Member Registration & Leadership Portal</p></div>
+  <nav>
+    <button class="navbtn active" onclick="showPage('register',this)">Register</button>
+    <button class="navbtn" onclick="showPage('directory',this)">Directory</button>
+    <button class="navbtn" onclick="showPage('admin',this)">Admin</button>
+  </nav>
+</header>
+<main>
+<section id="register">
+  <div class="hero"><h2>Become a registered YIM member.</h2><p>Register once and receive a unique YIM Member ID. This demo stores registrations in the current browser only.</p></div>
+  <div class="grid">
+    <div class="card"><h3>Member Registration</h3>
+      <form id="regForm">
+        <div class="formgrid">
+          <div><label>Full name *</label><input id="name" required placeholder="Enter your full name"></div>
+          <div><label>Email or phone *</label><input id="contact" required placeholder="A contact you can use"></div>
+          <div><label>School / organization *</label><input id="school" required placeholder="School or organization"></div>
+          <div><label>YIM club / center *</label><input id="club" required placeholder="Club or center name"></div>
+          <div><label>District *</label><input id="district" required placeholder="District"></div>
+          <div><label>Membership role</label><select id="role"><option>Member</option><option>Club Leader</option><option>Media / Communications</option><option>Volunteer</option></select></div>
+          <div><label>Year joined</label><input id="year" type="number" min="2000" max="2100" placeholder="2026"></div>
+          <div><label>Age range</label><select id="age"><option>Prefer not to say</option><option>Under 15</option><option>15–17</option><option>18–24</option><option>25+</option></select></div>
+          <div class="full"><label>Leadership interests</label><textarea id="interests" rows="3" placeholder="e.g. public speaking, entrepreneurship, media, mentoring"></textarea></div>
+        </div>
+        <label><input type="checkbox" id="consent" required style="width:auto"> I understand this information is collected for YIM membership administration.</label>
+        <button class="primary" type="submit" style="margin-top:12px">Register Member</button>
+      </form><div id="success" class="success hidden" style="margin-top:15px"></div>
+    </div>
+    <div class="card"><h3>Why register?</h3><p>✔ Build an official YIM member record</p><p>✔ Connect members to their club or center</p><p>✔ Help YIM understand its national network</p><p>✔ Make communication and leadership opportunities easier</p><div class="note"><b>Demo privacy:</b> registrations stay in this browser. A production launch should use a secure database, authentication, access controls and a clear privacy policy.</div></div>
+  </div>
+</section>
+<section id="directory" class="hidden">
+  <div class="hero"><h2>Member Directory</h2><p>Demo directory for testing the portal.</p></div>
+  <div class="card"><input id="search" placeholder="Search by name, Member ID, school, club or district..." oninput="renderMembers()"><div style="overflow:auto;margin-top:14px"><table><thead><tr><th>Member ID</th><th>Name</th><th>Club / Center</th><th>School</th><th>District</th><th>Role</th></tr></thead><tbody id="memberRows"></tbody></table></div></div>
+</section>
+<section id="admin" class="hidden">
+  <div class="hero"><h2>Admin Dashboard</h2><p>Testing dashboard for YIM administrators.</p></div>
+  <div class="stats"><div class="stat"><b id="total">0</b><span>Total registrations</span></div><div class="stat"><b id="clubs">0</b><span>Clubs / centers</span></div><div class="stat"><b id="schools">0</b><span>Schools / organizations</span></div></div>
+  <div class="card" style="margin-top:20px"><h3>Prototype note</h3><p>This version is a public front-end demo. It does not send member information to a server.</p><button onclick="clearMembers()">Clear local test data</button></div>
+</section>
+</main>
+<footer>YIM Rwanda Member Registration & Leadership Portal • Prototype</footer>
+<script>
+const KEY='yim_rwanda_members_v1';
+let members=JSON.parse(localStorage.getItem(KEY)||'[]');
+function id(){return 'YIM-RW-'+new Date().getFullYear()+'-'+String(Date.now()).slice(-6)}
+function save(){localStorage.setItem(KEY,JSON.stringify(members))}
+function showPage(page,btn){['register','directory','admin'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==page));document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(page!=='register')renderMembers();updateStats()}
+document.getElementById('regForm').addEventListener('submit',e=>{e.preventDefault();const m={id:id(),name:name.value.trim(),contact:contact.value.trim(),school:school.value.trim(),club:club.value.trim(),district:district.value.trim(),role:role.value,year:year.value,age:age.value,interests:interests.value.trim()};members.unshift(m);save();success.innerHTML='<b>Registration successful.</b><br>Your Member ID is <strong>'+m.id+'</strong>. Keep it for your records.';success.classList.remove('hidden');e.target.reset();updateStats();});
+function renderMembers(){const q=(document.getElementById('search')?.value||'').toLowerCase();const rows=members.filter(m=>Object.values(m).join(' ').toLowerCase().includes(q)).map(m=>'<tr><td>'+m.id+'</td><td>'+m.name+'</td><td>'+m.club+'</td><td>'+m.school+'</td><td>'+m.district+'</td><td><span class="pill">'+m.role+'</span></td></tr>').join('');document.getElementById('memberRows').innerHTML=rows||'<tr><td colspan="6">No registrations yet.</td></tr>'}
+function updateStats(){document.getElementById('total').textContent=members.length;document.getElementById('clubs').textContent=new Set(members.map(m=>m.club)).size;document.getElementById('schools').textContent=new Set(members.map(m=>m.school)).size}
+function clearMembers(){if(confirm('Clear all test registrations from this browser?')){members=[];save();renderMembers();updateStats()}}
+updateStats();
+</script>
+</body>
+</html>
